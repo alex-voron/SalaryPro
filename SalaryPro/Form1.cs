@@ -283,10 +283,10 @@ namespace SalaryPro
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // В .NET 10 це найнадійніший спосіб отримати версію продукту
+            // В .NET 10 ProductVersion автоматично береться з налаштувань проєкту/публікації
             string version = Application.ProductVersion;
 
-            // Якщо версія довга (з хешем), обрізаємо її до читабельної
+            // Очищаємо від зайвої інфи (іноді .NET додає +commitHash)
             if (version.Contains("+"))
             {
                 version = version.Split('+')[0];

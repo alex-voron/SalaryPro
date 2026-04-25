@@ -5,6 +5,8 @@
 		<Nullable>enable</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Version>1.0.0.8</Version>
+
+		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+		<Version>1.0.0.10</Version>
 	</PropertyGroup>
 </Project>

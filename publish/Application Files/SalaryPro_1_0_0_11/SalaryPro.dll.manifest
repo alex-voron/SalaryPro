@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="SalaryPro.exe" version="1.0.0.11" publicKeyToken="c301bb44bc669dee" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Launcher" version="8.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Launcher.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Launcher.exe" size="17776">
+      <assemblyIdentity name="Launcher" version="8.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>FZXjzgFDZyHKMNKvBLYBtQeqEsHPaBzqHLmZyD42vGk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="SalaryPro.deps.json" size="427">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>0DlzVaY2/oWxIXzOHotW0XgtBXpne81tvJ3TSgKPPpM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="SalaryPro.dll" size="33136">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Rx6q4ntllQZbg/IYOmb5RfSQISPQgn8HVz/LXQyzUQ4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="SalaryPro.exe" size="163696">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>P9NAusvGu70yAHItLrGp9Ub4sZdECm/45Rr3wCEYoYI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="SalaryPro.runtimeconfig.json" size="519">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>lrwpRt/4eQQA1lLsf43nuwQ+lUmA1ZRwwRJ4i2ih+9M=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=ALEX\belph" issuerKeyHash="d517e02121b29c813aef1bcc3ea9c51779c7e0f9" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>3TWL8IgjhGk0ThqXP/zOZn6g1q2QtrUUkpvo1JRhGyI=</DigestValue></Reference></SignedInfo><SignatureValue>hKpClFDpzo5Dp8emJRq1IAAaT3oZ2uw1sdEwZDWjuHM5o/BnaAPMKXdp7/+nBeKbZVFFSdeGYWd7ZS+F+b48nrdW7f/rlmYk+OdywzXSpYGvuHSiEV9sOqMGj7D/sTWwYWDGgzislCtEWuxvEWsP985WuFDMteDh+j+C8rVJ9ZT8gYPpB/1oNmYDGlJvLV1ElAfESFyOyw/w9i1UyugIJMUfQAhgej57zGVdowcIPNW9S4byWksNbdI5EiuUDWXfBAaWSvdyNS3/8viaJjKF6E4hU9p0N+KmpI/WTNtDwtUWdqO1Ytbqzixka134T/ey83nuNz029V+yCMmZC2nJog==</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>2RgZXmOhzCDw2SKAnftbi/WLC/TS4kHJLxAhCxvGn9CvIbWJuW/7Px3vvfQRkGcgqsq9eDBrz08/n36GkKFGomApDLAV7HFnK63z2ZJbr3+JWDYrR+gF0y2kSvut4c7bm7MtHBWO3XIA9leBFVMZvzwMxasBmgIq7PPQo8pp1GHGQ3ZuKkIuVXrLLo4ZKZ8qSiFn1D3K3+bDjfdg6YsbHA5JgbxE9i/I/P9gI1ucw8CDqCSdzYmSfhmGAyk8SQ+VN90Ctaib4g5bJVy2u2B4ekxRgyjQaSZviCa8KCxIr28wAyOS0gzWhLywXVUwVv9uFgAVX5mHrcQzh+W1mnsOrQ==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="221b6194d4e89b9214b5b690add6a07e66cefc3f971a4e3469842388f08b35dd" Description="" Url=""><as:assemblyIdentity name="SalaryPro.exe" version="1.0.0.11" publicKeyToken="c301bb44bc669dee" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=ALEX\belph</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>F4DpS47aFt0mxk0cMn6RY1DeYi9Z4PWo6yMn6Gz7i1o=</DigestValue></Reference></SignedInfo><SignatureValue>s4ohdS0tLKv36yuuekKD6EhJSN/nUgKSVtXOKaKDpe/8pePsqRAtCRDR1IZ2CTwQnj85oGu5GskwY42iF4SHttp88FyU4Fe/ZAKqRJuq3JrWW6s0/pAtEiOqvaw6Wr/y6oJz9kCQhCusoFx6HzjlahX+5Z2B1H48w5Tct43LW3hmFUet6u/0qZX6alentk3rlKgYYbo+KkNpNYvvPDqzzhtQGidZIX+63Ss7I9voxhKHFQzUBs5Bo2jK0HIRSOscZF7HYeWdoKuPYLX5bMH+Kt28TR8iAPFSxzTElaOEd03VCsbJaVFybOc8ivxHZe5WvgKJN/UR8jtqD326S712IQ==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>2RgZXmOhzCDw2SKAnftbi/WLC/TS4kHJLxAhCxvGn9CvIbWJuW/7Px3vvfQRkGcgqsq9eDBrz08/n36GkKFGomApDLAV7HFnK63z2ZJbr3+JWDYrR+gF0y2kSvut4c7bm7MtHBWO3XIA9leBFVMZvzwMxasBmgIq7PPQo8pp1GHGQ3ZuKkIuVXrLLo4ZKZ8qSiFn1D3K3+bDjfdg6YsbHA5JgbxE9i/I/P9gI1ucw8CDqCSdzYmSfhmGAyk8SQ+VN90Ctaib4g5bJVy2u2B4ekxRgyjQaSZviCa8KCxIr28wAyOS0gzWhLywXVUwVv9uFgAVX5mHrcQzh+W1mnsOrQ==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIC+TCCAeGgAwIBAgIJAOmMkjhJcT18MA0GCSqGSIb3DQEBCwUAMB8xHTAbBgNVBAMeFABBAEwARQBYAFwAYgBlAGwAcABoMB4XDTI2MDQyNTEyMDcwNFoXDTI2MDUwMjEyMDcwNFowHzEdMBsGA1UEAx4UAEEATABFAFgAXABiAGUAbABwAGgwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDZGBleY6HMIPDZIoCd+1uL9YsL9NLiQckvECELG8af0K8htYm5b/s/He+99BGQZyCqyr14MGvPTz+ffoaQoUaiYCkMsBXscWcrrfPZkluvf4lYNitH6AXTLaRK+63hztubsy0cFY7dcgD2V4EVUxm/PAzFqwGaAirs89CjymnUYcZDdm4qQi5VessujhkpnypKIWfUPcrf5sON92DpixscDkmBvET2L8j8/2AjW5zDwIOoJJ3NiZJ+GYYDKTxJD5U33QK1qJviDlslXLa7YHh6TFGDKNBpJm+IJrwoLEivbzADI5LSDNaEvLBdVTBW/24WABVfmYetxDOH5bWaew6tAgMBAAGjODA2MAwGA1UdEwEB/wQCMAAwDgYDVR0PAQH/BAQDAgeAMBYGA1UdJQEB/wQMMAoGCCsGAQUFBwMDMA0GCSqGSIb3DQEBCwUAA4IBAQApA1UZ+OuRugrfz/cx7QC/pAIy6ySP9GQNWBETXMkgpps00h8LqmcshpP1HQHr/jZ70xCL85voi6xe4hplNhP8p/l1/HzH3t6IWmO7PqcKNFcGgRt5T/gCu/gagEuAuZqq97p/GijhIfcsqwlonaA7WwClcGyexoR0+8T2nCtDIJfoQd8tIcDs26aYivqYOdVOWo+O9dc55FlQFJsXiUn0E5/95n7JUts1WNcbQL4J+zsZQaUs+mRmbHxsjLlb8h7ZIHTHOeRAcVDbdhO29/Ucm+6XqVcT141uDJMD1H6rcRwDj7JDYp0bdW+0rcfeK7f8RZ1SfmWMFI1iVwsaKxsL</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
