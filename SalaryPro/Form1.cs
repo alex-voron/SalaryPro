@@ -57,7 +57,8 @@ namespace SalaryPro
             dgvVendors.CellEndEdit += dgvVendors_CellEndEdit;
             dgvVendors.KeyDown += dgvVendors_KeyDown;
 
-            txtPriceBot.KeyPress += (s, e) => {
+            txtPriceBot.KeyPress += (s, e) =>
+            {
                 if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) e.Handled = true;
             };
             txtPriceBot.Click += (s, e) => txtPriceBot.SelectAll();
@@ -199,7 +200,8 @@ namespace SalaryPro
 
             btnAdd.Click += (s, a) => ShowAddVendorDialog(dgv);
             bD.Click += (s, a) => { if (dgv.CurrentRow != null) dgv.Rows.Remove(dgv.CurrentRow); };
-            bS.Click += (s, a) => {
+            bS.Click += (s, a) =>
+            {
                 actualizations.Clear();
                 foreach (DataGridViewRow r in dgv.Rows)
                 {
@@ -225,7 +227,8 @@ namespace SalaryPro
             ComboBox cb = new ComboBox { Left = 20, Top = 25, Width = 245, DropDownStyle = ComboBoxStyle.DropDownList };
             cb.Items.AddRange(vendors.ToArray()); if (cb.Items.Count > 0) cb.SelectedIndex = 0;
             Button b = new Button { Text = "Додати", Left = 20, Top = 75, Width = 245, Height = 40, BackColor = Color.FromArgb(0, 120, 212), ForeColor = Color.White, FlatStyle = FlatStyle.Flat };
-            b.Click += (s, a) => {
+            b.Click += (s, a) =>
+            {
                 foreach (DataGridViewRow r in targetDgv.Rows) if (r.Cells[0].Value?.ToString() == cb.Text) { ShowCenteredMessage("Вже в списку!"); return; }
                 targetDgv.Rows.Add(cb.Text, 0, 0); f.Close();
             };
@@ -276,6 +279,11 @@ namespace SalaryPro
         private void NumericCheck(object sender, KeyPressEventArgs e) { if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) e.Handled = true; }
         private void dgvVendors_CellEndEdit(object sender, DataGridViewCellEventArgs e) { if (e.RowIndex >= 0 && e.ColumnIndex >= 1 && e.ColumnIndex <= 4) { var c = dgvVendors.Rows[e.RowIndex].Cells[e.ColumnIndex]; if (c.Value == null || string.IsNullOrWhiteSpace(c.Value.ToString())) c.Value = "0"; } }
         private void dgvVendors_KeyDown(object sender, KeyEventArgs e) { if ((e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back) && dgvVendors.CurrentCell != null && dgvVendors.CurrentCell.ColumnIndex >= 1 && dgvVendors.CurrentCell.ColumnIndex <= 4) { dgvVendors.CurrentCell.Value = "0"; e.Handled = true; } }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class ActualizationRecord { public string VendorName { get; set; } public int TotalSum { get; set; } public string Formula { get; set; } }

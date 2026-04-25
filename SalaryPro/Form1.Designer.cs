@@ -286,6 +286,7 @@
             Controls.Add(dtpStart);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvVendors).EndInit();
             groupExtra.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
