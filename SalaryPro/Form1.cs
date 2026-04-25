@@ -283,19 +283,10 @@ namespace SalaryPro
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            try
-            {
-                // Беремо версію збірки. Вона автоматично збігається з версією публікації ClickOnce
-                Version version = Assembly.GetExecutingAssembly().GetName().Version;
+            // Беремо версію файлу, яка зазвичай оновлюється разом із публікацією
+            var version = System.Diagnostics.FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
 
-                // Виводимо: SalaryPro v.1.0.0.7
-                this.Text = $"SalaryPro v.{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
-            }
-            catch
-            {
-                // Якщо щось піде не так, просто назва без версії
-                this.Text = "SalaryPro";
-            }
+            this.Text = $"SalaryPro v.{version}";
         }
     }
 
