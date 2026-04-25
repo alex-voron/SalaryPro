@@ -1,0 +1,6 @@
+# Примусово лікуємо зміну хешів ClickOnce
+publish/** binary
+*.deps.json binary
+*.manifest binary
+*.application binary
+*.dll.deploy binary
