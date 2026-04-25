@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dtpStart = new DateTimePicker();
             dtpEnd = new DateTimePicker();
             dgvVendors = new DataGridView();
@@ -50,9 +50,13 @@
             btnCopy = new Button();
             btnClear = new Button();
             comboLang = new ComboBox();
+            lblTotalLinks = new Label();
+            lblTotalSum = new Label();
+            pnlReportContainer = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgvVendors).BeginInit();
             groupExtra.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
+            pnlReportContainer.SuspendLayout();
             SuspendLayout();
             // 
             // dtpStart
@@ -80,14 +84,14 @@
             dgvVendors.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvVendors.BackgroundColor = Color.White;
             dgvVendors.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvVendors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvVendors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvVendors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvVendors.Columns.AddRange(new DataGridViewColumn[] { colName, col55, col30, col15, col5, colTotal });
             dgvVendors.GridColor = SystemColors.ControlLight;
@@ -218,12 +222,13 @@
             // 
             // rtbReport
             // 
-            rtbReport.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             rtbReport.BackColor = SystemColors.ControlLight;
+            rtbReport.BorderStyle = BorderStyle.None;
+            rtbReport.Dock = DockStyle.Fill;
             rtbReport.Font = new Font("Arial", 10F);
-            rtbReport.Location = new Point(87, 453);
+            rtbReport.Location = new Point(1, 1);
             rtbReport.Name = "rtbReport";
-            rtbReport.Size = new Size(405, 216);
+            rtbReport.Size = new Size(422, 238);
             rtbReport.TabIndex = 7;
             rtbReport.Text = "";
             // 
@@ -268,17 +273,47 @@
             comboLang.Size = new Size(41, 23);
             comboLang.TabIndex = 11;
             // 
+            // lblTotalLinks
+            // 
+            lblTotalLinks.AutoSize = true;
+            lblTotalLinks.Location = new Point(114, 316);
+            lblTotalLinks.Name = "lblTotalLinks";
+            lblTotalLinks.Size = new Size(38, 15);
+            lblTotalLinks.TabIndex = 12;
+            lblTotalLinks.Text = "label1";
+            // 
+            // lblTotalSum
+            // 
+            lblTotalSum.AutoSize = true;
+            lblTotalSum.Location = new Point(311, 316);
+            lblTotalSum.Name = "lblTotalSum";
+            lblTotalSum.Size = new Size(38, 15);
+            lblTotalSum.TabIndex = 13;
+            lblTotalSum.Text = "label2";
+            // 
+            // pnlReportContainer
+            // 
+            pnlReportContainer.BackColor = SystemColors.GrayText;
+            pnlReportContainer.Controls.Add(rtbReport);
+            pnlReportContainer.Location = new Point(87, 444);
+            pnlReportContainer.Name = "pnlReportContainer";
+            pnlReportContainer.Padding = new Padding(1);
+            pnlReportContainer.Size = new Size(424, 240);
+            pnlReportContainer.TabIndex = 14;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(579, 732);
+            Controls.Add(pnlReportContainer);
+            Controls.Add(lblTotalSum);
+            Controls.Add(lblTotalLinks);
             Controls.Add(comboLang);
             Controls.Add(btnClear);
             Controls.Add(btnCopy);
             Controls.Add(btnGenerate);
-            Controls.Add(rtbReport);
             Controls.Add(groupExtra);
             Controls.Add(btnEditVendors);
             Controls.Add(dgvVendors);
@@ -291,7 +326,9 @@
             groupExtra.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
+            pnlReportContainer.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -317,5 +354,8 @@
         private Button btnClear;
         private ComboBox comboLang;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Label lblTotalLinks;
+        private Label lblTotalSum;
+        private Panel pnlReportContainer;
     }
 }

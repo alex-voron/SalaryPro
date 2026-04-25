@@ -36,9 +36,9 @@ namespace SalaryPro
 
             // Налаштування форматів календаря
             dtpStart.Format = DateTimePickerFormat.Custom;
-            dtpStart.CustomFormat = "dd MMM yyyy";
+            dtpStart.CustomFormat = "dd.MM.yyyy";
             dtpEnd.Format = DateTimePickerFormat.Custom;
-            dtpEnd.CustomFormat = "dd MMM yyyy";
+            dtpEnd.CustomFormat = "dd.MM.yyyy";
 
             // Прибираємо фокус при старті
             this.Activated += (s, e) => { this.ActiveControl = null; };
@@ -50,6 +50,22 @@ namespace SalaryPro
             dgvVendors.EditMode = DataGridViewEditMode.EditOnEnter;
             dgvVendors.AllowUserToAddRows = false;
             dgvVendors.RowHeadersVisible = false;
+
+            // Налаштування межі RichTextBox
+            rtbReport.BorderStyle = BorderStyle.FixedSingle;
+
+            // Додаємо відступ тексту всередині RichTextBox
+            // Робимо невеликий відступ тексту від лівого краю рамки
+            rtbReport.SelectAll();
+            rtbReport.SelectionIndent = 10;
+            rtbReport.SelectionRightIndent = 5;
+            rtbReport.DeselectAll();
+            // Прибираємо вбудовану рамку, якщо використовуємо метод з Panel
+            rtbReport.BorderStyle = BorderStyle.None;
+
+            // Робимо невеликий відступ тексту від лівого краю рамки
+            rtbReport.SelectAll();
+            rtbReport.SelectionIndent = 10;
 
             // Події таблиці
             dgvVendors.CellValueChanged += dgvVendors_CellValueChanged;
@@ -65,6 +81,10 @@ namespace SalaryPro
             txtPriceBot.Click += (s, e) => txtPriceBot.SelectAll();
 
             this.FormClosing += (s, e) => SaveWindowSettings();
+
+            // Початковий текст для лейблів статистики
+            lblTotalLinks.Text = "Кількість посилань (55+30): 0";
+            lblTotalSum.Text = "Загальна сума по таблиці: 0 грн";
 
             InitializeTable();
         }
@@ -164,6 +184,7 @@ namespace SalaryPro
 
             foreach (var v in vendors) dgvVendors.Rows.Add(v, "0", "0", "0", "0", "0");
             foreach (DataGridViewColumn col in dgvVendors.Columns) col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            UpdateTableTotals();
         }
 
         private void ShowCenteredMessage(string message, string title = "SalaryPro")
@@ -274,7 +295,23 @@ namespace SalaryPro
         private void SaveWindowSettings() { try { string d = $"{this.Location.X};{this.Location.Y};{this.Size.Width};{this.Size.Height}"; System.IO.File.WriteAllText(configPath, d); } catch { } }
         private void LoadWindowSettings() { try { if (System.IO.File.Exists(configPath)) { string[] p = System.IO.File.ReadAllText(configPath).Split(';'); this.StartPosition = FormStartPosition.Manual; this.Location = new Point(int.Parse(p[0]), int.Parse(p[1])); this.Size = new Size(int.Parse(p[2]), int.Parse(p[3])); } } catch { this.StartPosition = FormStartPosition.CenterScreen; } }
 
-        private void dgvVendors_CellValueChanged(object sender, DataGridViewCellEventArgs e) { if (e.RowIndex >= 0 && e.ColumnIndex >= 1 && e.ColumnIndex <= 4) { int t = 0; int[] r = { 55, 30, 15, 5 }; for (int i = 0; i < 4; i++) { var v = dgvVendors.Rows[e.RowIndex].Cells[i + 1].Value; if (v != null && int.TryParse(v.ToString(), out int c)) t += c * r[i]; } dgvVendors.Rows[e.RowIndex].Cells[5].Value = t; } }
+        private void dgvVendors_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 1 && e.ColumnIndex <= 4)
+            {
+                int t = 0;
+                int[] r = { 55, 30, 15, 5 };
+                for (int i = 0; i < 4; i++)
+                {
+                    var v = dgvVendors.Rows[e.RowIndex].Cells[i + 1].Value;
+                    if (v != null && int.TryParse(v.ToString(), out int c)) t += c * r[i];
+                }
+                dgvVendors.Rows[e.RowIndex].Cells[5].Value = t;
+
+                // ДОДАЙ ЦЕЙ РЯДОК:
+                UpdateTableTotals();
+            }
+        }
         private void dgvVendors_CurrentCellDirtyStateChanged(object sender, EventArgs e) { if (dgvVendors.IsCurrentCellDirty) dgvVendors.CommitEdit(DataGridViewDataErrorContexts.Commit); }
         private void dgvVendors_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e) { TextBox tb = e.Control as TextBox; if (tb != null) { tb.KeyPress -= NumericCheck; tb.MaxLength = 4; if (dgvVendors.CurrentCell.ColumnIndex >= 1 && dgvVendors.CurrentCell.ColumnIndex <= 4) tb.KeyPress += NumericCheck; } }
         private void NumericCheck(object sender, KeyPressEventArgs e) { if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) e.Handled = true; }
@@ -293,6 +330,31 @@ namespace SalaryPro
             }
 
             this.Text = $"SalaryPro v.{version}";
+        }
+        private void UpdateTableTotals()
+        {
+            int totalLinks = 0;
+            int totalSum = 0;
+
+            foreach (DataGridViewRow row in dgvVendors.Rows)
+            {
+                // Стовпець 1 (55 грн) та Стовпець 2 (30 грн)
+                int count55 = 0;
+                int.TryParse(row.Cells[1].Value?.ToString(), out count55);
+
+                int count30 = 0;
+                int.TryParse(row.Cells[2].Value?.ToString(), out count30);
+
+                // Загальна сума в останньому стовпці (індекс 5)
+                int rowSum = 0;
+                int.TryParse(row.Cells[5].Value?.ToString(), out rowSum);
+
+                totalLinks += (count55 + count30);
+                totalSum += rowSum;
+            }
+
+            lblTotalLinks.Text = $"Кількість посилань: {totalLinks}";
+            lblTotalSum.Text = $"Загальна сума по таблиці: {totalSum} грн";
         }
     }
 
