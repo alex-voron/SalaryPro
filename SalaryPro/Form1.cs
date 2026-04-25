@@ -283,8 +283,14 @@ namespace SalaryPro
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Беремо версію файлу, яка зазвичай оновлюється разом із публікацією
-            var version = System.Diagnostics.FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
+            // В .NET 10 це найнадійніший спосіб отримати версію продукту
+            string version = Application.ProductVersion;
+
+            // Якщо версія довга (з хешем), обрізаємо її до читабельної
+            if (version.Contains("+"))
+            {
+                version = version.Split('+')[0];
+            }
 
             this.Text = $"SalaryPro v.{version}";
         }
