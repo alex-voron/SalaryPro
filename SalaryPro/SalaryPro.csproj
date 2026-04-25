@@ -7,6 +7,6 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
 		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-		<Version>1.0.0.10</Version>
+		<Version>1.0.0.15</Version>
 	</PropertyGroup>
 </Project>
