@@ -12,6 +12,11 @@ namespace SalaryPro
 {
     public partial class Form1 : Form
     {
+
+        private void btnCopyNumbered_Click(object sender, EventArgs e)
+        {
+            // Сюди ми пізніше перенесемо логіку нумерації, якщо захочеш
+        }
         private string configPath = "settings.txt";
         private MenuStrip mainMenu;
         private List<string> vendors = new List<string> {
@@ -355,6 +360,15 @@ namespace SalaryPro
 
             lblTotalLinks.Text = $"Кількість посилань: {totalLinks}";
             lblTotalSum.Text = $"Загальна сума по таблиці: {totalSum} грн";
+        }
+
+        private void btnOpenLinker_Click(object sender, EventArgs e)
+        {
+            // Створюємо екземпляр нашої нової форми
+            LinkerForm linker = new LinkerForm();
+
+            // Відкриваємо її як модальне вікно (поверх головного)
+            linker.ShowDialog();
         }
     }
 

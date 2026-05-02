@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dtpStart = new DateTimePicker();
             dtpEnd = new DateTimePicker();
             dgvVendors = new DataGridView();
@@ -53,6 +53,7 @@
             lblTotalLinks = new Label();
             lblTotalSum = new Label();
             pnlReportContainer = new Panel();
+            btnOpenLinker = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvVendors).BeginInit();
             groupExtra.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -84,14 +85,14 @@
             dgvVendors.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvVendors.BackgroundColor = Color.White;
             dgvVendors.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvVendors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvVendors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvVendors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvVendors.Columns.AddRange(new DataGridViewColumn[] { colName, col55, col30, col15, col5, colTotal });
             dgvVendors.GridColor = SystemColors.ControlLight;
@@ -268,7 +269,7 @@
             // comboLang
             // 
             comboLang.FormattingEnabled = true;
-            comboLang.Location = new Point(526, 41);
+            comboLang.Location = new Point(510, 41);
             comboLang.Name = "comboLang";
             comboLang.Size = new Size(41, 23);
             comboLang.TabIndex = 11;
@@ -301,12 +302,23 @@
             pnlReportContainer.Size = new Size(424, 240);
             pnlReportContainer.TabIndex = 14;
             // 
+            // btnOpenLinker
+            // 
+            btnOpenLinker.Location = new Point(12, 41);
+            btnOpenLinker.Name = "btnOpenLinker";
+            btnOpenLinker.Size = new Size(75, 23);
+            btnOpenLinker.TabIndex = 15;
+            btnOpenLinker.Text = "Linker";
+            btnOpenLinker.UseVisualStyleBackColor = true;
+            btnOpenLinker.Click += btnOpenLinker_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(579, 732);
+            ClientSize = new Size(579, 764);
+            Controls.Add(btnOpenLinker);
             Controls.Add(pnlReportContainer);
             Controls.Add(lblTotalSum);
             Controls.Add(lblTotalLinks);
@@ -357,5 +369,6 @@
         private Label lblTotalLinks;
         private Label lblTotalSum;
         private Panel pnlReportContainer;
+        private Button btnOpenLinker;
     }
 }
