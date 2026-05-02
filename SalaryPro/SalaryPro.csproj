@@ -9,10 +9,11 @@
 		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
 		<Version></Version>
 		<Copyright>Voronin Oleksandr</Copyright>
-		<PackageIcon>Gemini_Generated_Image_lqb1oalqb1oalqb1.png</PackageIcon>
+		<PackageIcon>128.png</PackageIcon>
+		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 	</PropertyGroup>
 	<ItemGroup>
-	  <None Include="..\..\..\Орест\Gemini_Generated_Image_lqb1oalqb1oalqb1.png">
+	  <None Include="..\..\..\Орест\128.png">
 	    <Pack>True</Pack>
 	    <PackagePath>\</PackagePath>
 	  </None>
