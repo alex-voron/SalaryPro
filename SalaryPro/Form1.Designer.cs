@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             dtpStart = new DateTimePicker();
             dtpEnd = new DateTimePicker();
             dgvVendors = new DataGridView();
@@ -331,6 +332,7 @@
             Controls.Add(dgvVendors);
             Controls.Add(dtpEnd);
             Controls.Add(dtpStart);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
