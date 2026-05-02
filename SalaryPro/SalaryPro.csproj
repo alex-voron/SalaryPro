@@ -7,6 +7,14 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
 		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-		<Version>1.0.0.16</Version>
+		<Version></Version>
+		<Copyright>Voronin Oleksandr</Copyright>
+		<PackageIcon>Gemini_Generated_Image_lqb1oalqb1oalqb1.png</PackageIcon>
 	</PropertyGroup>
+	<ItemGroup>
+	  <None Include="..\..\..\Орест\Gemini_Generated_Image_lqb1oalqb1oalqb1.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
 </Project>
