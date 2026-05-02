@@ -1,0 +1,28 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "SalaryPro/1.0.0": {
+        "runtime": {
+          "SalaryPro.dll": {}
+        },
+        "resources": {
+          "cs/SalaryPro.resources.dll": {
+            "locale": "cs"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SalaryPro/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
