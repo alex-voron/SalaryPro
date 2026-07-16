@@ -297,8 +297,64 @@ namespace SalaryPro
 
         public void btnEditVendors_Click(object sender, EventArgs e) { Form f = new Form { Text = "Постачальники", Size = new Size(350, 500), StartPosition = FormStartPosition.CenterParent, BackColor = Color.White }; TextBox t = new TextBox { Multiline = true, Dock = DockStyle.Fill, Text = string.Join(Environment.NewLine, vendors), ScrollBars = ScrollBars.Vertical, Font = new Font("Segoe UI", 10) }; Button b = new Button { Text = "Зберегти", Dock = DockStyle.Bottom, Height = 45, BackColor = Color.FromArgb(0, 120, 212), ForeColor = Color.White, FlatStyle = FlatStyle.Flat }; b.Click += (s, a) => { f.DialogResult = DialogResult.OK; f.Close(); }; f.Controls.Add(t); f.Controls.Add(b); if (f.ShowDialog() == DialogResult.OK) { vendors = t.Text.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToList(); InitializeTable(); } }
 
-        private void SaveWindowSettings() { try { string d = $"{this.Location.X};{this.Location.Y};{this.Size.Width};{this.Size.Height}"; System.IO.File.WriteAllText(configPath, d); } catch { } }
-        private void LoadWindowSettings() { try { if (System.IO.File.Exists(configPath)) { string[] p = System.IO.File.ReadAllText(configPath).Split(';'); this.StartPosition = FormStartPosition.Manual; this.Location = new Point(int.Parse(p[0]), int.Parse(p[1])); this.Size = new Size(int.Parse(p[2]), int.Parse(p[3])); } } catch { this.StartPosition = FormStartPosition.CenterScreen; } }
+        private void SaveWindowSettings() 
+        { 
+            try 
+            { 
+                // Якщо вікно згорнуте або розгорнуте на весь екран, не зберігаємо його позицію як дефолтну
+                if (this.WindowState != FormWindowState.Normal) return;
+
+                string d = $"{this.Location.X};{this.Location.Y};{this.Size.Width};{this.Size.Height}"; 
+                System.IO.File.WriteAllText(configPath, d); 
+            } 
+            catch { } 
+        }
+
+        private void LoadWindowSettings() 
+        { 
+            try 
+            { 
+                if (System.IO.File.Exists(configPath)) 
+                { 
+                    string[] p = System.IO.File.ReadAllText(configPath).Split(';'); 
+                    if (p.Length >= 4)
+                    {
+                        int x = int.Parse(p[0]);
+                        int y = int.Parse(p[1]);
+                        int width = int.Parse(p[2]);
+                        int height = int.Parse(p[3]);
+
+                        // Захист: Якщо розміри збереглися як занадто малі або нульові, ставимо дефолтні
+                        if (width < 300) width = 800;
+                        if (height < 300) height = 600;
+
+                        // Захист: Перевіряємо, чи видима ця точка (X, Y) хоча б на одному з підключених моніторів
+                        bool isVisible = false;
+                        Point startPoint = new Point(x, y);
+                        foreach (var screen in Screen.AllScreens)
+                        {
+                            if (screen.WorkingArea.Contains(startPoint))
+                            {
+                                isVisible = true;
+                                break;
+                            }
+                        }
+
+                        if (isVisible)
+                        {
+                            this.StartPosition = FormStartPosition.Manual; 
+                            this.Location = startPoint; 
+                            this.Size = new Size(width, height); 
+                            return;
+                        }
+                    }
+                } 
+            } 
+            catch { } 
+
+            // Якщо файлу немає, сталася помилка або координати «злетіли» поза екран
+            this.StartPosition = FormStartPosition.CenterScreen; 
+        }
 
         private void dgvVendors_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
